@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="//unpkg.com/vue/dist/vue.js"></script>
+    <script src="//unpkg.com/element-ui@2.2.2/lib/index.js"></script>
+    <title>Radiodemo</title>
+</head>
+<body>
+<div id="app">
+    <template>
+        <el-radio-group v-model="radio2">
+            <el-radio-button  label="洛阳"></el-radio-button>
+            <el-radio-button  label="郑州" disabled></el-radio-button>
+            <el-radio-button  label="三门峡"></el-radio-button>
+            <el-radio-button  label="驻马店"></el-radio-button>
+        </el-radio-group>
+        <el-checkbox v-model="checked">选择1</el-checkbox>
+        <el-checkbox v-model="checked1" disabled>选择2</el-checkbox>
+        <el-checkbox v-model="checked2" disabled>选择3</el-checkbox>
+        <el-checkbox-group v-model="checklist">
+            <el-checkbox label="北京"></el-checkbox>
+            <el-checkbox label="上海"></el-checkbox>
+            <el-checkbox label="天津"></el-checkbox>
+            <el-checkbox label="武汉" disabled></el-checkbox>
+            <el-checkbox label="成都"></el-checkbox>
+        </el-checkbox-group>
+        <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+        <div style=""></div>
+    </template>
+</div>
+</body>
+<script>
+    var Main={
+        data(){
+            return{
+                radio2:'洛阳',
+                checked:true,
+                checked1:false,
+                checked2:true,
+                checklist:['武汉','北京','天津']//这里面填哪个,哪个被选中
+            }
+        }
+    }
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#app')
+</script>
+</html>
